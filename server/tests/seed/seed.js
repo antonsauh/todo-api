@@ -12,14 +12,19 @@ const users = [{
     password: 'userOnePass',
     tokens: [{
         access: 'auth',
-        token: jwt.sign({id:userOneId, access: 'auth'}, 'abc123').toString()
+        token: jwt.sign({id:userOneId, access: 'auth'}, process.env.JWT_SECRET).toString()
 
     }]
 },
 {
     _id: userTwoId,
     email: 'tony@example.com',
-    password: 'userTwoPass'
+    password: 'userTwoPass',
+    tokens: [{
+        access: 'auth',
+        token: jwt.sign({id:userTwoId, access: 'auth'}, process.env.JWT_SECRET).toString()
+
+    }] 
 }]
 
 
